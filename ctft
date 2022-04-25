@@ -1,0 +1,29 @@
+%2020UEC2561 Rishabh Jain ECE-2
+%Continuous Time fourier Transform
+clc;
+clear all;
+close all;
+dt=0.01;
+df=0.01;
+for k=1:1:40
+ a(k)=k;
+ b(k)=41-k;
+end
+x=[zeros(1,30),10*ones(1,62),zeros(1,28)];
+y=linspace(0.01,1.2,120);
+subplot(2,1,1);
+plot(y,x);title('Recatangular Pulse', 'FontSize', 7);
+ylabel('magnitude');
+xlabel('t');
+for i=1:1:300
+ for q=1:1:120
+ p=i-150;
+ f(q)=exp(j*2*pi*p*q*dt*df)*dt;
+ end
+ X(i)=x*(f)';
+end
+y=linspace(0.01,3.0,300);
+subplot(2,1,2);
+plot(y,X);title('Fourier Transform', 'FontSize', 7);
+ylabel('magnitude');
+xlabel('t');
